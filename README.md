@@ -1,3 +1,5 @@
+Forked for crawling tweets in Australia. All credits for tool goes to  Jimmy Lin(http://twittertools.cc). License preserved if you want to reuse the work.
+
 Twitter Tools
 =============
 
