@@ -24,6 +24,7 @@ import org.apache.log4j.rolling.RollingFileAppender;
 import org.apache.log4j.rolling.TimeBasedRollingPolicy;
 import org.apache.log4j.varia.LevelRangeFilter;
 
+import twitter4j.FilterQuery;
 import twitter4j.RawStreamListener;
 import twitter4j.TwitterException;
 import twitter4j.TwitterStream;
@@ -93,7 +94,7 @@ public final class GatherStatusStream {
       public void onMessage(String rawString) {
         cnt++;
         logger.info(rawString);
-        if (cnt % 1000 == 0) {
+        if (cnt % 10 == 0) {
           System.out.println(cnt + " messages received.");
         }
       }
@@ -106,6 +107,10 @@ public final class GatherStatusStream {
     };
 
     twitterStream.addListener(rawListener);
-    twitterStream.sample();
+    FilterQuery fq= new FilterQuery();
+    double locations[][]={{112.0,-44.0},{155.0,-10.5}}; 
+    fq.locations(locations);
+    twitterStream.filter(fq);
+    //twitterStream.sample();
   }
 }
