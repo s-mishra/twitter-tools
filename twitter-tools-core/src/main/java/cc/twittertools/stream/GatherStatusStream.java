@@ -94,7 +94,7 @@ public final class GatherStatusStream {
       public void onMessage(String rawString) {
         cnt++;
         logger.info(rawString);
-        if (cnt % 10 == 0) {
+        if (cnt % 100 == 0) {
           System.out.println(cnt + " messages received.");
         }
       }
@@ -108,8 +108,10 @@ public final class GatherStatusStream {
 
     twitterStream.addListener(rawListener);
     FilterQuery fq= new FilterQuery();
-    double locations[][]={{112.0,-44.0},{155.0,-10.5}}; 
-    fq.locations(locations);
+   /* double locations[][]={{112.0,-44.0},{155.0,-10.5}}; 
+    fq.locations(locations);*/
+    long ids[]={16675569};
+    fq.follow(ids);
     twitterStream.filter(fq);
     //twitterStream.sample();
   }
