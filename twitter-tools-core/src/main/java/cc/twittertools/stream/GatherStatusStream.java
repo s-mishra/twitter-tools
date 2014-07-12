@@ -110,7 +110,7 @@ public final class GatherStatusStream {
     FilterQuery fq= new FilterQuery();
    /* double locations[][]={{112.0,-44.0},{155.0,-10.5}}; 
     fq.locations(locations);*/
-    long ids[]={87818409};
+    long ids[]={87818409,16675569};
     fq.follow(ids);
     twitterStream.filter(fq);
     //twitterStream.sample();
